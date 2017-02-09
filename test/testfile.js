@@ -1,12 +1,29 @@
 var url = '#'; // url
 var siteName = 'Todo';
-
-casper.test.begin("Test", 3, function suite(test) {
+var firstItem = 'Buy chocolate';
+casper.test.begin("Basic tests", function suite(test) {
     casper.start(url, function() {
-        test.comment("Starting testing...");
         test.assertTitle(siteName, "This page has the correct title !");
-        test.assertExists(".view", "The class view exists");
-    })
+        test.assertVisible('footer');
+        test.assertExists('h1',"H1 title is here");
+        test.assertElementCount('.ng-binding', 1);
+        test.assertTextExists('todo', "page contains 'todo' ");
 
-})
+        //this.click('#toggle-all');
+
+        // asynchronous mode
+        this.click('#new-todo');
+
+        casper.then(function() {
+            test.assertElementCount('li', 3);
+            this.sendKeys('#new-todo', "Toto");
+            this.page.sendEvent('keypress', this.page.event.key.Enter);
+        })
+
+
+    }).run(function(){
+        test.done();
+    });
+});
+
 
