@@ -1,15 +1,11 @@
-// spec.js
 describe('TODO list', function() {
+    beforeEach(function() {
+        browser.get('http://todomvc.com/examples/angularjs/#/');
+    });
+        
     it('should filter results', function() {
-
-        // Find the element with ng-model="user" and type "chocolate" into it
-        element(by.model('new-todo')).sendKeys('chocolate');
-
-        // Find the first (and only) button on the page and click it
-        element(by.css(':button')).click();
-
-        // Verify that that there is only one item in the todo list
-        expect(element.all(by.repeater('todo in todos')).count()).toEqual(1);
+        // Verify that that there is 0 item in the todo list
+        expect(element.all(by.repeater('todo in todos')).count()).toEqual(0);
 
     });
 });
