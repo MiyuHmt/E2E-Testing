@@ -1,3 +1,5 @@
+E2E Testing
+
 ## Protractor
 Move to the Protractor project branch with:
 
@@ -74,8 +76,20 @@ Run the CasperJS tests:
 ```casperjs test test/testfile.js```
 
 
-Other useful commands for the Selenium Server:
+## Other useful commands 
+
+* For the Selenium Server:
 
 ```webdriver-manager clean```
 
 This command is for clear out the server and driver files. Use it if `webdriver-manager start` does not work.
+
+* Docs
+
+[PhantomJS API Documentation](http://phantomjs.org/api/)
+
+[CasperJS Documentation](http://docs.casperjs.org/en/latest/)
+
+[Nightwatch API Documentation](http://nightwatchjs.org/api)
+
+[Protractor API Documentation](http://www.protractortest.org/#/api)
