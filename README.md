@@ -22,7 +22,9 @@ Then, in a second terminal window run this command:
 
 ```protractor tests/conf.js```
 
+ 
  ## Nightwatch
+ 
  
  Move to the Nightwatch project branch with:
 
