@@ -9,7 +9,7 @@ Then install the required dependencies, you need a Selenium Server (make sure yo
 
 ```npm install```
 
-Make an webdriver-manager update with:
+Make a webdriver-manager update with:
 ```webdriver-manager update```
 
 Run the Protractor tests:
@@ -41,7 +41,7 @@ This command will install webdriver-manager globally
 
 ```npm install```
 
-Make an webdriver-manager update with:
+Make a webdriver-manager update with:
 
 ```webdriver-manager update```
 
