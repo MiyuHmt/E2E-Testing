@@ -84,7 +84,11 @@ Run the CasperJS tests:
 
 This command is for clear out the server and driver files. Use it if `webdriver-manager start` does not work.
 
-* Docs
+```webdriver-manager shutdown```
+
+Use it for stopping server
+
+## Documentation
 
 [PhantomJS API Documentation](http://phantomjs.org/api/)
 
