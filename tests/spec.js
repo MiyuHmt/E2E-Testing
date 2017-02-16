@@ -26,13 +26,11 @@ describe('Todo list', function() {
   };
 
   var completeItem = function(index) {
-    //browser.actions().mouseMove(elements.getItem(index)).perform();
     browser.actions().click(elements.getItemCompleteToggle(index)).perform();
   };
 
   var deleteItem = function(optionalIndex) {
     var index = optionalIndex || 0;
-    //browser.actions().mouseMove(elements.getItem(index)).perform();
     browser.actions().click(elements.getItemDeleteButton(index)).perform();
   };
 
