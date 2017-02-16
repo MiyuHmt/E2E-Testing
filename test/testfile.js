@@ -10,16 +10,16 @@ casper.test.begin("Basic tests", function suite(test) {
         test.assertElementCount('.quote', 1);
         test.assertTextExists('todo', "page contains 'todo' ");
         // adding new item
-        his.sendKeys('#new-todo', firstItem);
+        //his.sendKeys('#new-todo', firstItem);
         this.page.sendEvent('keypress', this.page.event.key.Enter);
         this.capture('adding.png');
 
         // asynchronous mode
-        this.click("#new-todo");
+        //this.click("#new-todo");
 
         casper.then(function() {
             test.assertElementCount('li', 16);
-            this.sendKeys('#new-todo', "Toto");
+            //this.sendKeys('#new-todo', "Toto");
             this.page.sendEvent('keypress', this.page.event.key.Enter);
         })
     }).run(function(){
