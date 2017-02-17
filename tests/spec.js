@@ -44,7 +44,7 @@ describe('Todo list', function() {
       addItem('Chocolate');
     });
 
-    it('increment the item left counter', function() {
+    it('see if the item left counter is increment', function() {
       expect(elements.getTodoCount().getText()).toBe('1 item left');
     });
   });
@@ -76,8 +76,18 @@ describe('Todo list', function() {
       completeItem(0);
       completeItem(1);
     })
-    it('Clear items', function() {
+    it('Clear completed items', function() {
       clearCompletedItems();
+    })
+  });
+  describe('Try to add blank item', function() {
+    before(function() {
+     browser.get(appAddress);
+     addItem('Milk');
+     addItem(' ');
+    });
+    it('Count if the blank item is in the list', function() {
+      expect(elements.getTodoCount().getText()).toBe('1 item left');
     })
   });
 });
