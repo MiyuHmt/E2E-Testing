@@ -65,6 +65,19 @@ describe('Todo list', function() {
       completeItem(0);
       completeItem(1);
     })
-
-  })
+  });
+  describe('clear complete items', function() {
+    before(function() {
+     browser.get(appAddress);
+     addItem('Milk');
+     addItem('Butter'); 
+    });
+    it('Check items', function() {
+      completeItem(0);
+      completeItem(1);
+    })
+    it('Clear items', function() {
+      clearCompletedItems();
+    })
+  });
 });
