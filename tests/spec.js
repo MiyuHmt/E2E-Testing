@@ -11,6 +11,14 @@ describe('Todo list', function() {
     });
   };
 
+  var fs = require('fs');
+
+  function writeScreenShot(data,filename) {
+    var stream = fs.createWriteStream(filename);
+    stream.write(new Buffer(data, 'base64'));
+    stream.end();
+  }
+
   var elements = {
     getNewTodoInput:              function() { return element(by.model('newTodo')); },
     getItemCompleteToggle:        function(index) { return element.all(by.css('.toggle')).get(index); },
@@ -42,6 +50,9 @@ describe('Todo list', function() {
     before(function() {
       browser.get(appAddress);
       addItem('Chocolate');
+      browser.takeScreenshot().then(function(png) {
+        writeScreenShot(png, 'addingChocolateInTheList.png');
+      });
     });
 
     it('see if the item left counter is increment', function() {
@@ -77,7 +88,13 @@ describe('Todo list', function() {
       completeItem(1);
     })
     it('Clear completed items', function() {
+      browser.takeScreenshot().then(function(png) {
+        writeScreenShot(png, 'beforeCleanCompletedItems.png');
+      });
       clearCompletedItems();
+      browser.takeScreenshot().then(function(png) {
+        writeScreenShot(png, 'clearCompletedItems.png');
+      });
     })
   });
   describe('Try to add blank item', function() {
@@ -88,6 +105,9 @@ describe('Todo list', function() {
     });
     it('Count if the blank item is in the list', function() {
       expect(elements.getTodoCount().getText()).toBe('1 item left');
+      browser.takeScreenshot().then(function(png) {
+        writeScreenShot(png, 'addBlankItem.png');
+      });
     })
   });
 });
