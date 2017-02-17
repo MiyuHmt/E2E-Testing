@@ -1,4 +1,4 @@
-var url = '#####'; // put the local url
+var url = '#####'; // put the local link
 var siteName = 'AngularJS • TodoMVC';
 var firstItem = 'Buy chocolate';
 
