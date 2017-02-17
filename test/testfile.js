@@ -1,4 +1,4 @@
-var url = 'http://todomvc.com/examples/angularjs/#/';
+var url = '#####'; // put the local url
 var siteName = 'AngularJS • TodoMVC';
 var firstItem = 'Buy chocolate';
 
@@ -6,22 +6,21 @@ casper.test.begin("Basic tests", function suite(test) {
     casper.start(url, function() {
         test.assertTitle(siteName, "This page has the correct title !");
         test.assertVisible('footer');
-        test.assertExists('h3',"H3 title is here");
-        test.assertElementCount('.quote', 1);
+        test.assertExists('h1',"H1 title is here");
+        test.assertElementCount('.todoform', 1);
         test.assertTextExists('todo', "page contains 'todo' ");
         // adding new item
-        //his.sendKeys('#new-todo', firstItem);
+        this.sendKeys('.newtodo', firstItem);
         this.page.sendEvent('keypress', this.page.event.key.Enter);
-        this.capture('adding.png');
 
         // asynchronous mode
-        //this.click("#new-todo");
+        this.click(".newtodo");
 
         casper.then(function() {
-            test.assertElementCount('li', 16);
-            //this.sendKeys('#new-todo', "Toto");
+            test.assertElementCount('li', 3);
+            this.sendKeys('.newtodo', "Toto");
             this.page.sendEvent('keypress', this.page.event.key.Enter);
-        })
+        });
     }).run(function(){
         test.done();
     });
