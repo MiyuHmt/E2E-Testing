@@ -13,8 +13,8 @@ describe('Todo list', function() {
 
   var elements = {
     getNewTodoInput:              function() { return element(by.model('newTodo')); },
-    getItemCompleteToggle:  function(index) { return element.all(by.css('.toggle')).get(index); },
-    getItemkDeleteButton:    function(index) { return element.all(by.css('.destroy')).get(index); },
+    getItemCompleteToggle:        function(index) { return element.all(by.css('.toggle')).get(index); },
+    getItemkDeleteButton:         function(index) { return element.all(by.css('.destroy')).get(index); },
     getMainViewLink:              function() { return element(by.css('.main-link')); },
     getClearCompletedItemsButton: function() { return element(by.id('clear-completed')); },
     getTodoCount:                 function() { return element(by.id('todo-count')).evaluate('remainingCount'); }
@@ -33,7 +33,6 @@ describe('Todo list', function() {
     var index = optionalIndex || 0;
     browser.actions().click(elements.getItemDeleteButton(index)).perform();
   };
-
 
   var clearCompletedItems = function() {
     browser.actions().click(elements.getClearCompletedItemsButton()).perform();
@@ -56,5 +55,16 @@ describe('Todo list', function() {
       completeItem(0);
     });
   });
+  describe('checking all todolist items', function() {
+    before(function() {
+      browser.get(appAddress);
+      addItem('Eggs');
+      addItem('Flour');
+    });
+    it('checking the item', function() {
+      completeItem(0);
+      completeItem(1);
+    })
 
+  })
 });
